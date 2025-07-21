@@ -1,6 +1,7 @@
 # recommendations/recommend.py
 import pandas as pd
 import mysql.connector
+import os 
 from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, jsonify
 
@@ -53,5 +54,6 @@ def api_recommend():
     recommendations = recommend(user_id)
     return jsonify({'user_id': user_id, 'recommendations': recommendations})
 
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=10000)
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 10000))
+    app.run(debug=False, host='0.0.0.0', port=port)
