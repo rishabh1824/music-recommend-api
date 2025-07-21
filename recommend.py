@@ -5,7 +5,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, jsonify
 
 # ─── 1. Load play data ───────────────────────────────────────────────────────────
-df = pd.read_csv("recommendations/listening_data.csv")
+df = pd.read_csv("listening_data.csv")
 
 
 
